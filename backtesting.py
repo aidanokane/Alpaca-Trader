@@ -6,6 +6,10 @@ list = [
     "AAPL", "ADBE", "AMZN", "GOOGL", "XOM",
     "INTC", "MSFT", "MAR", "NVDA"]
 
+quant = []
+for stock in list:
+    quant.append(0)
+
 config = configparser.ConfigParser()
 config.read('.gitignore/config.ini')
 
@@ -20,7 +24,7 @@ closingData = []
 for i in range(len(list)):
     alpacaData = vbt.AlpacaData.download(
         symbols=list[i],
-        start='725 days ago UTC',
+        start='610 days ago UTC',
         end='1 days ago UTC',
         interval='1d'
     )
@@ -29,7 +33,6 @@ for i in range(len(list)):
 print(alpacaData.get()['Close'].keys)
 
 cash = 100000
-quant = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 short_period = 5
 long_period = 10
 

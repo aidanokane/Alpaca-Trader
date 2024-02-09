@@ -45,11 +45,11 @@ for x in range(long_period, len(closingData[0])):
             if(signals[0] == 'buy' and cash - signals[1] > 0):
                 cash -= signals[1]
                 quant[y] += (signals[1] / closingData[y][x])
-                print("BUY:", list[y], ",", quant[y])
+                print("BUY:", list[y], ",", (signals[1] / closingData[y][x]))
             elif(signals[1] == 'sell' and quant - (signals[1] / closingData[y][x]) > 0):
                 cash += signals[1]
                 quant[y] -= (signals[1] / closingData[y][x])
-                print("SELL:", list[y], ",", quant[y])
+                print("SELL:", list[y], ",", (signals[1] / closingData[y][x]))
 
 print(len(closingData[0]))
 
